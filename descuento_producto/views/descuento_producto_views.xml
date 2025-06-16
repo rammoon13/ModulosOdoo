@@ -1,0 +1,50 @@
+<!-- descuento_producto/views/descuento_producto_views.xml-->
+<odoo>
+    <!-- vista formulario -->
+    <record id="view_descuento_producto_form" model="ir.ui.view">
+        <field name="name">descuento.producto.form</field>
+        <field name="model">descuento.producto</field>
+        <field name="arch" type="xml">
+            <form string="Descuento de Producto">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="producto"/>
+                        <field name="cliente"/>
+                        <field name="precio_venta"/>
+                        <field name="descuento"/>
+                        <field name="precio_final" readonly="1"/>
+                        <field name="observaciones"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- vista arbol -->
+    <record id="view_descuento_producto_tree" model="ir.ui.view">
+        <field name="name">descuento.producto.tree</field>
+        <field name="model">descuento.producto</field>
+        <field name="arch" type="xml">
+            <tree string="Descuentos de Productos">
+                <field name="name"/>
+                <field name="producto"/>
+                <field name="cliente"/>
+                <field name="precio_venta"/>
+                <field name="descuento"/>
+                <field name="precio_final"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- accion de ventana -->
+    <record id="action_descuento_producto" model="ir.actions.act_window">
+        <field name="name">Descuentos de Productos</field>
+        <field name="res_model">descuento.producto</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- menus -->
+    <menuitem id="menu_descuento_producto_root" name="Descuento de Producto" sequence="10"/>
+    <menuitem id="menu_descuento_producto" name="Descuentos" parent="menu_descuento_producto_root" action="action_descuento_producto" sequence="10"/>
+</odoo>
